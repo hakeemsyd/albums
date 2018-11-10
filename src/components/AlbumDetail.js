@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 type Props = {
   key: string;
@@ -26,9 +27,12 @@ class AlbumDetail extends Component<Props, State> {
             <Text>{album.artist}</Text>
           </View>
         </CardSection>
-        <View>
+        <CardSection>
           <Image style={styles.imageStyle} source={{ uri: album.image }} />
-        </View>
+        </CardSection>
+        <CardSection>
+          <Button onPress={() => Linking.openURL(album.url)} />
+        </CardSection>
       </Card>
     );
   }
