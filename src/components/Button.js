@@ -5,10 +5,10 @@ type Props = { onPress: any};
 type State = {};
 class Button extends Component<Props, State> {
   render() {
-    const { onPress } = this.props;
+    const { onPress, children } = this.props;
     return (
       <TouchableOpacity style={styles.buttonStyle} onPress={onPress}>
-        <Text style={styles.textStyle}>Purchase Now</Text>
+        <Text style={styles.textStyle}>{children}</Text>
       </TouchableOpacity>
     );
   }

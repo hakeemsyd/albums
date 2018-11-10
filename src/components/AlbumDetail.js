@@ -14,24 +14,31 @@ type State = {
 };
 class AlbumDetail extends Component<Props, State> {
   render() {
-    const { album } = this.props;
-    const { thumbnailStyle } = styles;
+    const { thumbnail_image, url, title, artist, image } = this.props.album;
+    const {
+      thumbnailStyle,
+      thumbnailContainerStyle,
+      headerTextStyle,
+      titleStyle,
+      imageStyle
+    } = styles;
+    
     return (
       <Card>
         <CardSection>
-          <View style={styles.thumbnailContainerStyle}>
-            <Image source={{ uri: album.thumbnail_image }} style={thumbnailStyle} />
+          <View style={thumbnailContainerStyle}>
+            <Image source={{ uri: thumbnail_image }} style={thumbnailStyle} />
           </View>
-          <View style={styles.titleStyle}>
-            <Text style={styles.headerTextStyle}>{album.title}</Text>
-            <Text>{album.artist}</Text>
+          <View style={titleStyle}>
+            <Text style={headerTextStyle}>{title}</Text>
+            <Text>{artist}</Text>
           </View>
         </CardSection>
         <CardSection>
-          <Image style={styles.imageStyle} source={{ uri: album.image }} />
+          <Image style={imageStyle} source={{ uri: image }} />
         </CardSection>
         <CardSection>
-          <Button onPress={() => Linking.openURL(album.url)} />
+          <Button onPress={() => Linking.openURL(url)}>Buy Now</Button>
         </CardSection>
       </Card>
     );
