@@ -15,8 +15,16 @@ export default class App extends Component<Props> {
     return (
       <View>
             <Header headerText={'Albums'}></Header>
-            <AlbumList />
+            <AlbumList style={styles.albumListStyle}/>
       </View>
     );
   }
 }
+
+const styles = {
+  albumListStyle: {
+    height: 100,
+    width: null,
+    flex: null,
+  }
+};
